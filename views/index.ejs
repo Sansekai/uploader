@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background estetik -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header di dalam box agar rapi -->
+        <div class="upload-box">
+            <header class="header">
+                <div class="header-text">
+                   
+                    <h1 class="title"><span style="color: var(--text-color);">Uploader</span></h1>
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </header>
+
+            <div class="file-input-wrapper" id="dropZone">
+                <input type="file" id="fileInput" class="file-input" accept="image/*,video/*,application/pdf,audio/mpeg,.mp3,.heic,.heif">
+                <div class="upload-icon">
+                    <i class="fas fa-cloud-arrow-up"></i>
+                </div>
+                <p class="upload-text">Drop your files here</p>
+                <p class="allowed-types">Max 20MB (Img, Vid, PDF, & Audio)</p>
+                <p class="file-name" id="fileNameDisplay"></p>
+            </div>
+            
+            <button class="process-btn" onclick="uploadFile()" id="uploadBtn">
+                Upload Files 🚀
+            </button>
+            
+            <div id="loadingArea" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p style="font-size: 0.9rem; color: var(--secondary-text);">Sending to space...</p>
+            </div>
+
+            <div id="errorArea" class="error-msg" style="display: none;"></div>
+        </div>
+
+        <!-- Result Section (Terpisah agar ada animasi masuk) -->
+        <div id="resultArea" class="result-card" style="display: none; margin-top: 20px;">
+            <div style="font-size: 3rem; color: #00b894; margin-bottom: 10px;">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 style="margin-bottom: 15px;">Uploaded Successfully!</h3>
+            
+            <div class="link-group">
+                <input type="text" id="resultLink" readonly>
+                <button onclick="copyLink()" class="copy-btn"><i class="fas fa-copy"></i></button>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="#" id="openLinkBtn" target="_blank" class="secondary-btn">Open Link 🔗</a>
+                <button onclick="resetUpload()" class="secondary-btn">New Upload 🔄</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Made with ❤️ by AI.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
